@@ -28,7 +28,7 @@ router.post('/',async(request,response)=>{
         console.log(error.message);
         response.status(500).send({message:error.message});
     }
-})
+});
 
 
 router.get('/:id',async(request,response)=>{
@@ -48,7 +48,7 @@ router.get('/',async(request,response)=>{
         const books = await Book.find({});
         return response.status(200).json({
             count:books.length,
-            data:books
+            data:books,
 
         });
         

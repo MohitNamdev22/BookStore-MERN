@@ -11,19 +11,21 @@ const ShowBook = () => {
     const { id } = useParams();
 
     useEffect(() => {
+        console.log("here")
+        console.log('ID:', id);
         setLoading(true);
         axios
             .get(`http://localhost:5555/books/${id}`)
             .then((response) => {
-                console.log(response.data);
+                console.log("response data: ",response.data);
                 setBook(response.data);
                 setLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                console.log("Error: ",error);
                 setLoading(false);
             });
-    }, [])
+    }, [id]);
     return (
         <div className='p-4'>
             <BackButton />
